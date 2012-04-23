@@ -1,0 +1,46 @@
+<%=  render :partial => 'layouts/start' %>
+
+<body onload="init()">
+	
+	
+<div id="header">
+	<%=  render :partial => 'layouts/header' %>
+</div>
+
+<!-- body -->
+<div id="tabs">
+     <ul>
+        <li><a href="#tabs-1">Map</a></li>
+       
+        
+      </ul>
+
+      
+      <div id="tabs-1">
+          <div id="nav" class="mapwNav">
+            <%=  render :partial => 'layouts/leftcol' %>
+          </div>
+          
+          <div id="map" class="mapwNav">
+          	<%= yield %>
+          </div>
+          
+          <div id="toolbox" class= "hidden">
+            
+              <%=  render :partial => 'layouts/help' %>
+          
+       	   </div>
+       </div>
+
+      
+
+</div>
+
+<!-- body -->
+
+<div id="footer" class="footerFull ui-widget-content" style="font-size:12px">
+        <%=  render :partial => 'layouts/footer' %>
+</div>
+
+</body>
+</html>

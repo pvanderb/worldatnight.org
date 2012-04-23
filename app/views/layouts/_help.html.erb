@@ -1,0 +1,27 @@
+ <div id="legendClose" style="float:right;">
+	<button onClick="toggleTools(); return false;" id="stop">stop</button>
+</div>
+
+<br>
+<table id="infobox-table" width="100%">
+	<thead>	 <tr> <th colspan='2' align='center'>Legend</th> </tr> </thead>
+
+	<tr> <td> <%= image_tag("yellow_MarkerH.png") %> </td> <td>HCFCD Sensor Locations</td> </tr> 
+	<tr> <td> <%= image_tag("blue_MarkerU.png") %> </td> <td>USGS Sensor Locations</td> </tr> 
+	<tr> <td> <%= image_tag("green_MarkerT.png") %> </td> <td>TxDOT Sensor Locations</td> </tr> 
+	<tr> <td> <%= image_tag("brown_MarkerC.png") %> </td> <td>COH Sensor Locations</td> </tr>
+	<tr> <td> <%= image_tag("caution_metro.png") %> </td> <td>Frequently flooded locations on Metro routes</td> </tr> 
+	<tr> <td> <%= image_tag("alert_image.jpg") %> </td> <td>Sensors showing flood warning</td> </tr> 
+	<tr> <td> <%= image_tag("layer-switcher-maximize.png") %> </td> <td>Base Map and Layer Selector</td> </tr>  
+</table>
+<hr>
+<table id="infobox-table" width="100%">
+	<thead>	 <tr> <th colspan='2' align='center'>Notes</th> </tr> </thead>
+
+	<tr> <td> <%= image_tag("loader.gif") %> </td> <td>Site auto-updates every 2 mins</td> </tr> 
+	<tr> <td> <%= image_tag("alert_square.jpg") %> </td> <td>Flood warnings feed. Click it to go to that location</td> </tr> 
+	<tr> <td> <%= image_tag("click_me.png") %> </td> <td>Click a sensor to select it and view its information</td> </tr> 
+	<tr> <td> <%= image_tag("eye.png") %> </td> <td>"The Eye" around a selected sensor shows its monitoring location. Drag drop it to change its location</td> </tr> 
+	
+</table>
+ 

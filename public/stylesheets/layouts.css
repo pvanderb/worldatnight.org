@@ -1,0 +1,251 @@
+html, body {
+            height: 100%;
+            overflow:hidden;
+        }
+        h2 {
+              color: #003a6b;
+              background-color: transparent;
+              font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+              margin: 0;
+              padding-top: 0.5em;
+              font-size: 120%;
+              margin-bottom: 0.5em;
+              border-bottom: 1px solid #aaa;
+            }
+        
+        #feed{
+              height:200px;
+              overflow:auto;
+              overflow-x: hidden; 
+             }
+        
+        #slide {
+              position: fixed;
+              top: 50.00em;
+              z-index: 99999999;
+            }
+
+        #updateTime{
+
+          position: fixed;
+          top: 7.2em;
+          right: 15px;
+          color: #FFFFFF;
+        }    
+        #header {
+            
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 1.5em;
+        }
+          
+       #tabs 
+       {
+              font-size: 12px;
+              position: fixed;
+              top: 6.38em;
+              bottom: 2.2em;
+              left: 5px; 
+              right: 5px;
+       }
+       #map {
+              position: fixed;
+              top: 9.48em;
+              bottom: 2.2em;
+              
+            }
+       
+       .mapFull { left: 9px; right: 9px; }
+       .mapwTools { left: 9px; right: 200px; }
+       .mapwNav { left: 190px; right: 9px;  }
+       .mapwNavTools { left: 190px; right: 200px; }
+
+       #footer {
+                position: absolute;
+                bottom: 0px;
+                padding: 0;
+                margin: 0;
+                height: 2.0em;
+                text-align: center;
+               }
+        .footerFull { left: 5px; right: 5px; }
+        .footerwTools { left: 5px; right: 200px; }
+        .footerwNav { left: 190px; right: 5px; }
+        .footerwNavTools { left: 190px; right: 200px; }
+        #footer > div {
+            display: inline-block;
+            *display: inline; /* For IE7 */
+            width: 33%;
+        }
+
+        #nav {
+            font-size: 12px;
+            position: fixed;
+            top: 9.48em;
+            left: 9px;
+            bottom: 2.2em;
+            width: 180px;
+            overflow: auto;
+           
+            border-right: 1px solid #4F5257;
+        }
+        #toolbox {
+            position: fixed;
+
+            width: 190px;
+            overflow: auto;
+            top: 9.48em;
+            right: 9px;
+            bottom: 2.2em;
+            border-left: 1px solid #4F5257;
+        }
+        .hidden { display: none; visibility: hidden; }
+        .olPopup p { margin:0px; font-size: .9em;}
+        .olPopup h2 { font-size:1.2em; }
+
+
+#blue-table
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+#blue-table th
+{
+  font-size: 13px;
+  font-weight: normal;
+  padding: 8px;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
+}
+#blue-table td
+{
+  padding: 2px;
+  background: #FFFFE7; 
+  border-bottom: 1px solid #fff;
+  color: #C67100;
+  border-top: 1px solid transparent;
+  font-size : 10px
+}
+#blue-table a 
+{ 
+color: #669;
+text-decoration: none; 
+}
+#blue-table tr:hover td
+{
+  background: #FFFFFF;
+  color: #1896C6;
+  font-size : 10px;
+  cursor: pointer; 
+  cursor: hand;
+}
+
+
+/*-------------info box table----------------*/
+#infobox-table
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  text-align: left;
+  border-collapse: collapse;
+}
+#infobox-table th
+{
+  font-weight: normal;
+  padding: 2px;
+  background: #EEEEEE;
+  
+  /* border-bottom: 1px solid #EF8E00;*/
+  color: #1C94C4;
+}
+#infobox-table td
+{
+  padding: 2px;
+  background: #FFFFE7; 
+  border-bottom: 1px solid #fff;
+  color: #C67100;
+  border-top: 1px solid transparent;
+  font-size : 10px
+}
+#infobox-table td.alt
+{
+  background: #FFFFFF;
+  color: #1896C6;
+  font-size : 10px;
+  cursor: pointer; 
+  cursor: hand;
+}
+
+#infobox-table td.val
+{
+  color: #003a6b;
+}
+#infobox-table td.ALARM
+{
+  color: #FF4040;
+}
+
+#infobox-table a 
+{ 
+color: #669;
+text-decoration: none; 
+}
+#infobox-table tr:hover td
+{
+  background: #FFFFFF;
+  color: #1896C6;
+  font-size : 10px;
+  cursor: pointer; 
+  cursor: hand;
+}
+
+/*-----------LOGIN FORM-----------*/
+
+.no-close .ui-dialog-titlebar-close {display: none } /*---- to disable close button on jquery ui form-----*/
+.ui-button-text { font-size: 12px; }
+
+
+/*----Error Fields--------------*/
+
+.fieldWithErrors {
+  padding: 2px;
+  color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 100%;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

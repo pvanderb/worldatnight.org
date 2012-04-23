@@ -1,0 +1,130 @@
+<script type="text/javascript"> 
+
+        var map, select,dragControl,keyboardControl;
+       
+        function init(){
+            
+           var map = new OpenLayers.Map("map");
+
+        var ol_wms = new OpenLayers.Layer.WMS(
+            "Base Map",
+            "http://vmap0.tiles.osgeo.org/wms/vmap0",
+            {layers: "basic"}
+        );
+
+        var population = getWMSLayer("population",'nurc:population_clipped',false);
+        var solar = getWMSLayer("solar insolation",'nurc:solar_insolation_clipped',false);
+        var lights = getWMSLayer("light",'nurc:lights',false);
+        var distance = getWMSLayer("distance",'nurc:distance',false);
+        var difference = getWMSLayer("difference",'nurc:difference1',false);
+
+          map.addLayers([ol_wms, population,solar,lights,distance,difference]);
+          map.addControl(new OpenLayers.Control.LayerSwitcher());
+          map.zoomToMaxExtent();
+
+          var layer_num = 1;
+
+           map.events.register('click', map, function (e) {
+                    document.getElementById('feed').innerHTML = "Loading... please wait...";
+                    
+                    var params = getParams("nurc:population_clipped",1);
+                    alert(params)
+                    OpenLayers.loadURL("http://floodwatch.ie.uh.edu:80/geoserver/nurc/wms", params, this, setPop, setPop);
+
+                   
+                    
+                    OpenLayers.Event.stop(e);
+                });
+            
+        }
+
+          function getParams(layer, index){
+            var params = {
+                        REQUEST: "GetFeatureInfo",
+                        EXCEPTIONS: "application/vnd.ogc.se_xml",
+                        BBOX: map.getExtent().toBBOX(),
+                        SERVICE: "WMS",
+                        VERSION: "1.1.1",
+                        X: e.xy.x,
+                        Y: e.xy.y,
+                        INFO_FORMAT: 'application/vnd.ogc.gml',
+                        QUERY_LAYERS: map.layers[index].params.LAYERS,
+                        FEATURE_COUNT: 50,
+                        Layers: layer,
+                        WIDTH: map.size.w,
+                        HEIGHT: map.size.h,
+                        format: 'image/png',
+                        styles: map.layers[index].params.STYLES,
+                        srs: map.layers[index].params.SRS};
+
+            return params;
+          }
+            function setPop(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert("population = "+r);
+                
+            };
+            function setSol(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert("Solar ="+r);
+                
+            };
+            function set_lig(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert("light = "+r);
+                
+            };
+            function setdist(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert("dist = "+r);
+                
+            };
+            function setDiff(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert("diff = "+r);
+                
+            };
+            // sets the HTML provided into the nodelist element
+            function setHTML(response){
+                document.getElementById('feed').innerHTML = response.responseText;
+                var r = response.responseText;
+                r = r.substring(r.indexOf("<nurc:GRAY_INDEX>")+17,r.indexOf("</nurc:GRAY_INDEX>"));
+                alert(r);
+                
+            };
+
+        function getWMSLayer(displayName,layer,defaultVisibility)
+        {
+            var layer = new OpenLayers.Layer.WMS(displayName,
+                                   "/geoserver/nurc/wms",
+                                   {
+                                       LAYERS: layer,
+                                       transparent: true,
+                                       format: 'image/png',
+                                       tiled: false                                       
+                                     
+                                   }, {
+                                       opacity: 0.6,
+                                       singleTile: false,
+                                       isBaseLayer: false
+                                   });
+             if (defaultVisibility!=null)layer.setVisibility(defaultVisibility);
+
+             return layer;                                   
+        }
+        
+</script> 
+
+
+<div id="slide" onclick="toggleNav(); return false;"><%= image_tag("slide_in.png") %></div>
+
